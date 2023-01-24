@@ -1,0 +1,257 @@
+<!doctype html>
+
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+   <!-- <link rel="stylesheet" href="style.css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Yatra One" rel="stylesheet">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
+          integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+    <title>Connect Four</title>
+</head>
+<body onload="loadInnerTable()">
+<script script type="text/javascript" src="\code.js"></script>
+
+<h1>Connect Four</h1>
+<form method="get" action="/gotosettings">
+<button title="Change Settings" id="settings"><i class="fa fa-cog"></i></button>
+</form>
+
+
+
+<select name="tests" id="tests" onchange="selecttest(this.value);">
+    <option value="" selected disabled hidden>Choose a Test Scenario:</option>
+    <option value="Szenario 1">Szenario 1</option>
+  <option value="Szenario 2">Szenario 2</option>
+  <option value="Szenario 3">Szenario 3</option>
+  <option value="Szenario 4">Szenario 4</option>
+  <option value="Szenario 5">Szenario 5</option>
+</select>
+<!--
+<button title="AI-Move" id="aimove" onclick="playaimove()"><i class="fa fa-reddit-alien" aria-hidden="true"></i></button>
+-->
+
+<div class="container">
+
+    <table>
+        <tr>
+            <td class="slot" id="0" onclick="sendcolumn(0)"></td>
+            <td class="slot" id="1" onclick="sendcolumn(1)"></td>
+            <td class="slot" id="2" onclick="sendcolumn(2)"></td>
+            <td class="slot" id="3" onclick="sendcolumn(3)"></td>
+            <td class="slot" id="4" onclick="sendcolumn(4)"></td>
+            <td class="slot" id="5" onclick="sendcolumn(5)"></td>
+            <td class="slot" id="6" onclick="sendcolumn(6)"></td>
+        </tr>
+        <tr>
+            <td class="slot" id="7" onclick="sendcolumn(7)"></td>
+            <td class="slot" id="8" onclick="sendcolumn(8)"></td>
+            <td class="slot" id="9" onclick="sendcolumn(9)"></td>
+            <td class="slot" id="10" onclick="sendcolumn(10)"></td>
+            <td class="slot" id="11" onclick="sendcolumn(11)"></td>
+            <td class="slot" id="12" onclick="sendcolumn(12)"></td>
+            <td class="slot" id="13" onclick="sendcolumn(13)"></td>
+        </tr>
+        <tr>
+            <td class="slot" id="14" onclick="sendcolumn(14)"></td>
+            <td class="slot" id="15" onclick="sendcolumn(15)"></td>
+            <td class="slot" id="16" onclick="sendcolumn(16)"></td>
+            <td class="slot" id="17" onclick="sendcolumn(17)"></td>
+            <td class="slot" id="18" onclick="sendcolumn(18)"></td>
+            <td class="slot" id="19" onclick="sendcolumn(19)"></td>
+            <td class="slot" id="20" onclick="sendcolumn(20)"></td>
+        </tr>
+        <tr>
+            <td class="slot" id="21" onclick="sendcolumn(21)"></td>
+            <td class="slot" id="22" onclick="sendcolumn(22)"></td>
+            <td class="slot" id="23" onclick="sendcolumn(23)"></td>
+            <td class="slot" id="24" onclick="sendcolumn(24)"></td>
+            <td class="slot" id="25" onclick="sendcolumn(25)"></td>
+            <td class="slot" id="26" onclick="sendcolumn(26)"></td>
+            <td class="slot" id="27" onclick="sendcolumn(27)"></td>
+        </tr>
+        <tr>
+            <td class="slot" id="28" onclick="sendcolumn(28)"></td>
+            <td class="slot" id="29" onclick="sendcolumn(29)"></td>
+            <td class="slot" id="30" onclick="sendcolumn(30)"></td>
+            <td class="slot" id="31" onclick="sendcolumn(31)"></td>
+            <td class="slot" id="32" onclick="sendcolumn(32)"></td>
+            <td class="slot" id="33" onclick="sendcolumn(33)"></td>
+            <td class="slot" id="34" onclick="sendcolumn(34)"></td>
+        </tr>
+        <tr>
+            <td class="slot" id="35" onclick="sendcolumn(35)"></td>
+            <td class="slot" id="36" onclick="sendcolumn(36)"></td>
+            <td class="slot" id="37" onclick="sendcolumn(37)"></td>
+            <td class="slot" id="38" onclick="sendcolumn(38)"></td>
+            <td class="slot" id="39" onclick="sendcolumn(39)"></td>
+            <td class="slot" id="40" onclick="sendcolumn(40)"></td>
+            <td class="slot" id="41" onclick="sendcolumn(41)"></td>
+        </tr>
+    </table>
+</div>
+
+<button class="btn" id="restart" onclick="restart()">Restart</button>
+<button class="btn" id="undo"  onclick="undomove()">Undo</button>
+
+<button type="button" class="btn" id="test"  onclick="playmove()">Next move</button>
+
+
+<p id="res"></p>
+
+
+</body>
+
+
+</html>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Yatra One';
+    text-align: center;
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+h1{
+    font-size: 3rem;
+}
+body {
+    background-color: #dcdcdc;
+}
+
+.container{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 600px;
+    height: 520px;
+    top: 9rem;
+    background: #3285a8;
+    border: 2px solid black;
+    padding: .5rem;
+    box-shadow: 5px 10px #888888;
+
+}
+
+.container table tr td{
+    width: 90px;
+    height: 80px;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+}
+
+.btn{
+    transform: translate(-50%);
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    padding: 0.3rem;
+    border: 1px solid black;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 6px 5px #888888;
+    transition: .5s;
+}
+#undo{
+    position: absolute;
+    top:42rem;
+    left: 63.5%;
+   
+}
+.btn:hover{
+transition: 0.8s;
+box-shadow: 0px 0px #888888;
+}
+
+.btn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+#restart{
+    position: absolute;
+    top:42rem;
+    right:57.8%; 
+   
+}
+
+#test{
+    position: absolute;
+    top:42rem;
+    left: 50.2%;
+  visibility: hidden;
+}
+
+
+#settings{
+    position: absolute;
+    top:5rem;
+    left: 36%;
+    transform: translate(-50%);
+    background-color:#dcdcdc;
+  border: none;
+  color: black;
+  
+  font-size: 30px;
+  cursor: pointer;
+}
+#aimove{
+    position: absolute;
+    top:5rem;
+    left: 63.6%;
+    transform: translate(-50%);
+    background-color:#dcdcdc;
+  border: none;
+  color: black;
+  
+  font-size: 30px;
+  cursor: pointer;
+}
+#tests{
+    position: absolute;
+    top:6rem;
+    left: 55.0%;
+}
+
+
+
+
+
+
+@media screen and (max-width: 600px){
+    .container{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        width: 90%;
+        height: 520px;
+        top: 9rem;
+        border: 2px solid black;
+        padding: .5rem;
+
+    }
+
+}
+
+
+
+
+
+
+</style>
+
+
