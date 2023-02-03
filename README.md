@@ -15,11 +15,11 @@ Ziel für beide Spieler ist es, eine gerade Linie aus vier eigenen Spielsteinen 
 - CSS
 ### Bedienungsanleitung
 - GameStart Screenshot: 
- ![Screenshot](StartScreen.png)
+ <img src="StartScreen.png" width="960">
  
 - Board Screenshot: 
  
- ![Screenshot](BoardScreen.png)
+ <img src="BoardScreen.png" width="960">
 
 Wenn der Benutzer die App ausführt, wird er auf die html-Seite 'Choice.html' umgeleitet. Auf dieser Seite werden die "Beschreibung" und das "Ziel" unten in der Spieleinstellungsbox des Spiels angezeigt.
 Auf der gleichen Seite kann der Benutzer auch wählen, wer als erster "Player 1" spielen darf, sowie die Spielschwierigkeit
