@@ -7,11 +7,17 @@
 Das folgende Spiel ist eine einfache "connect-four"-Anwendung, die den gleichen Satz von Spielregeln wie das Original-Spiel enthält, mit der Integration der KI, die je nach Schwierigkeitsgrad gegen den Spieler antreten wird.
 ### Spielregeln
 Ziel für beide Spieler ist es, eine gerade Linie aus vier eigenen Spielsteinen zu bilden; die Linie kann vertikal, horizontal oder diagonal sein. Vor dem Start entscheiden die Spieler, wer von ihnen der Anfänger sein wird; Im Spiel werden Die Züge abwechselnd , einer nach dem anderen, ausgeführt.
+###implementierte Technologien
+-Javalin :Web-Framework für Java und Kotlin
+-Kotlin
+-Html 
+-JavaScript
+-CSS
 ### Bedienungsanleitung
 - GameStart Screenshot: 
-- ![Screenshot](StartScreen.png)
+ ![Screenshot](StartScreen.png)
 - Board Screenshot: 
-- ![Screenshot](BoardScreen.png)
+ ![Screenshot](BoardScreen.png)
 
 Wenn der Benutzer die App ausführt, wird er auf die html-Seite 'Choice.html' umgeleitet. Auf dieser Seite werden die "Beschreibung" und das "Ziel" unten in der Spieleinstellungsbox des Spiels angezeigt.
 Auf der gleichen Seite kann der Benutzer auch wählen, wer als erster "Player 1" spielen darf, sowie die Spielschwierigkeit
