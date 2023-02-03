@@ -95,18 +95,7 @@ Die Tests werden wie folgt ausgeführt:
 - Die Konsole druckt zuerst die Züge aus, die zur Erstellung der Partie-Situation gemacht wurden, und dann wird bei jedem Klick auf 'NÄCHSTER ZUG' der gemachte Zug und der Testfall ausgedruckt, wenn er wahr ist.
 - Sobald ein Testszenario ausgewählt wurde, kann der Benutzer das Spielbrett nicht mehr durch Anklicken seiner Zellen verändern und muss 'RESTART' drücken, um wieder spielen zu können.
 
-## Umsetzung der GUI
-- Ich wollte, dass das Brett genauso aussieht wie die Bretter, mit denen wir im wirklichen Leben spielen.
-Ich habe die Tabellenzellen abgerundet und beim 'CONTAINER' einen blauen Hintergrund geschaffen.
-Die Buttons und Text-Fonts wurden modifiziert, damit sie für das Spielbrett besser geeignet aussehen.die meisten der erforderlichen Design-Tricks waren in Quellen wie 'w3schools' leicht zu finden. 
-## Quellennachweis
-die meisten der erforderlichen Design-Tricks waren in Quellen wie 'w3schools' leicht zu finden. 
-* <w3schools> half viel dabei, zusätzlich zu einigen Javascipt-Designmethoden wie 'document.getElementById("test").style.visibility = "visible";', die die Sichtbarkeit eines Elements in der html steuern, den reauired Designaufruf der App zu erreichen.
--die andere Quelle, die mir sehr geholfen hat, war ein Youtube-Video, das die Implementierung des Minimax mit der Bewertungsmethode erklärte:
-* <https://www.youtube.com/watch?v=y7AKtWGOPAE&t=481s>
-- alle informationen, die ich bei kotlin benötige, sind leicht zu finden unter :
-* <programiz.com/kotlin-programming>
-* <kotlinlang.org>
+
 
 ## Hinweise
 - in build.gradle musste Ich den slf4j Logger dependency importieren um 'json' bei Javalin zu verwenden
